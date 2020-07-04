@@ -1,0 +1,32 @@
+.container{
+    margin:10em auto;
+}
+.node{
+    width:3em;
+    height: 3em;
+    text-align: center;
+    border:2px solid black;
+    border-radius: 50%;
+}
+
+.node h3{
+    margin:.5em auto;
+}
+.subtree{
+    width:1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.subtree> .children{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tree{
+    width:50%;
+    display: flex;
+    justify-content: flex-end;
+}
