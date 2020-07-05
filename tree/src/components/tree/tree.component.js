@@ -1,56 +1,34 @@
-import React,{useState} from 'react';
-import SubTree from './subtree/subtree.component';
+import React,{useState,useContext,useEffect,useRef,createRef} from 'react';
 import './tree.component.css';
 import Node from './subtree/node/node.component';
-
+import TreeContext from './tree_context';
+import TreeModel from '../../classes/tree.model';
+import NodeModel from '../../classes/node.model';
 function Tree() {
+  let treeContext = useContext(TreeContext);
+  const [subtrees,setSubtree] = useState(treeContext.subtrees);
+  const [currNode,setCurrNode] = useState(0);
+  const [key,setKey] = useState(0);
+  const [value,setValue] = useState(0);
+  const [treeNode,setTreeNode] = useState(new TreeModel());
+  const [updateTree, setUpdateTree] = useState(0); // integer state
 
-  const [subtrees,setSubtree] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]);
 
-  const checkChild = (value,index) =>{
-    if(subtrees[2*index+1] && subtrees[2*index+2]){
-      return <div className="subtree">
-        <Node value={value} leftChild={subtrees[2*index+1]} rightChild={subtrees[2*index+2]}/>
-        <div class="children">
-          <Node value={value} leftChild={subtrees[2*index+1]} rightChild={subtrees[2*index+2]}/>
-          <Node value={value} leftChild={subtrees[2*index+1]} rightChild={subtrees[2*index+2]}/>
-        </div>
-        </div>
-    }
-    else if(subtrees[2*index+1]){
-      return <div className="subtree">
-        <Node value={value} leftChild={subtrees[2*index+1]} rightChild={null}/>
-        <div class="children">
-          <Node value={value} leftChild={subtrees[2*index+1]} rightChild={null}/>
-          <Node value={value} leftChild={subtrees[2*index+1]} rightChild={null}/>
-        </div>
-    </div>
-    } 
-    else if(subtrees[2*index+2]) {
-      return <div className="subtree">
-        <Node value={value} rightChild={subtrees[2*index+2]} leftChild={null}/>
-        <div class="children">
-          <Node value={value} rightChild={subtrees[2*index+2]} leftChild={null}/>
-          <Node value={value} rightChild={subtrees[2*index+2]} leftChild={null}/>
-        </div>
-        </div>
-    }
-    else {
-      return <div className="subtree">
-      <Node value={null} rightChild={null} leftChild={null}/>
-      <div class="children">
-      <Node value={null} rightChild={null} leftChild={null}/>
-      <Node value={null} rightChild={null} leftChild={null}/>
-      </div>
-      </div>
-    }
+  treeContext.root_node = <Node key={0} value={subtrees[0]} leftChild={subtrees[2*0+1]} rightChild={subtrees[2*0+2]} />
+  treeContext.nodeList=[]
+  let nodeRef = createRef();
+
+  const insertStuff = ()=>{
+    treeNode.insert(parseInt(key),parseInt(value));
+    setUpdateTree(value => ++value); // update the state to force render
+    console.log(treeNode)
   }
-
   const buildTree = (value,index)=>{
     if(value!=null){
+      
       return <div className="subtree">
-        {console.log(value)}
-        <Node value={value} leftChild={subtrees[2*index+1]} rightChild={subtrees[2*index+2]}/>
+       
+        <Node key={index} id={index} ref={nodeRef} visited={false} value={value} leftChild={buildTree(subtrees[2*index+1],2*index+1)} rightChild={buildTree(subtrees[2*index+2],2*index+2)}/>
       <div className="children">
         {buildTree(subtrees[2*index+1],2*index+1)}
         {buildTree(subtrees[2*index+2],2*index+2)}
@@ -58,24 +36,42 @@ function Tree() {
       </div>
     }
   }
-  return (
-    <div className="container">
   
+  const constructTree = (node,align='') => {
+    function getAlignment(align) {
+      if (align === 'left') {
+          return 'left';
+      }
+      if (align === 'right') {
+          return 'right';
+      }
+      
+      return ' ';
+  }
+    if(node!=null){
+      return <div className="subtree">
+        <Node key={node.key} id={node.key}  visited={false} value={node.value} />
+      
+        <div className={`children ${node.left && node.right? '': getAlignment(align)}`}>
+          {constructTree(node.left,'left')}
+          {constructTree(node.right,'right')}
+        </div>
+      </div>
+      }
+  }
+  return (
+  
+    <div className="container">
+      <input type="number" placeholder="key" onChange={(e)=>setKey(e.target.value)}/>
+      <input type="number" placeholder="value" onChange={(e)=>setValue(e.target.value)}/>
+      <button onClick={()=>insertStuff()}>Insert</button>
       <div className="tree">
-      {/* {
-        subtrees.map((value,index)=>{
-
-          return <div>{checkChild(value,index)} 
-          </div>
-        })
-      } */}
-
-      {
-        buildTree(subtrees[0],0)
+        {console.log(treeNode)}
+      { 
+        constructTree(treeNode.root)
       }
       </div>
     </div>
-
   );
 }
 

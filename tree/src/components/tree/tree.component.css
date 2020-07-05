@@ -24,9 +24,19 @@
     display: flex;
     justify-content: space-between;
 }
+.left{
+    justify-content: flex-start !important;
+}
 
+.right{
+    justify-content: flex-end !important;
+}
 .tree{
     width:50%;
     display: flex;
     justify-content: flex-end;
+}
+
+.visited{
+    background-color: red;
 }
