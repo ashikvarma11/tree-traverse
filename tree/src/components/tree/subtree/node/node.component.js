@@ -1,16 +1,10 @@
-import React,{useState, useEffect,useContext,forwardRef} from 'react';
+import React, { useState, useEffect, useContext, forwardRef } from 'react';
 import '../../tree.component.css'
 import TreeContext from '../../tree_context';
-const Node = forwardRef((props,ref)=> {
+const Node = forwardRef((props, ref) => {
 
-  const [value,setValue] = useState(props.value);
-  const [key,setKey] = useState(props.id)
+  const [key, setKey] = useState(props.id)
   let treeContext = useContext(TreeContext);
-
-
-
-
-
 
   return (
     <div className={`node  ${treeContext.curr_node_idx == key ? "visited" : ""}`} >

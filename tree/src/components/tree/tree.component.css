@@ -52,7 +52,7 @@ input{
 }
 
 .navbar{
-    margin-top: 5em;
+    margin-top: 10em;
     display: flex;
     justify-content: space-around;
     border-bottom: 2px solid teal;
@@ -71,6 +71,8 @@ button{
     border: none;
     width:12em;
     padding:0 2em;
+    font-family: 'Montserrat';
+    /* letter-spacing: 0.1rem; */
     font-size: 0.7rem;
     border-radius: 2px;
     padding: 0.5em;
@@ -88,4 +90,14 @@ button:focus{
 input:focus{
     outline: none !important
   
+}
+
+.logo h6{
+    position: absolute;
+    left: 3em;
+    border: 2px solid teal;
+    top:3em;
+    padding:1em;
+    margin: 0;
+    color:teal;
 }
