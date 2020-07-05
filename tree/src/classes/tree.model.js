@@ -1,4 +1,5 @@
 import NodeModel from "./node.model";
+import TreeContext from '../components/tree/tree_context';
 
 class TreeModel {
     constructor(){
@@ -66,11 +67,15 @@ class TreeModel {
       }
 
       inorder(node, fn) {
-        if (node !== null) {
-          this.inorder(node.left, fn);
-          fn(node);
-          this.inorder(node.right, fn);
+
+        if (node !== null) {    
+            
+           this.inorder(node.left, fn);
+           fn(node);
+        this.inorder(node.right, fn);
+           
         }
+        
       }
 
       preorder(node, fn) {
@@ -95,6 +100,7 @@ class TreeModel {
     else if (key > node.key) return this.find(node.right, key);
     else return node;
   }
+
   levelOrder() {
     if (!this.root) return [];
     var array = [];
