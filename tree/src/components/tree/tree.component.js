@@ -84,11 +84,11 @@ function Tree() {
   return (
 
     <div className="container">
-      <div class="navbar">
-        <div class="logo">
+      <div className="navbar">
+        <div className="logo">
           <h6>BINARY SEARCH TREE</h6>
         </div>
-        <div class="key">
+        <div className="key">
           Key <input type="number" name="key" onChange={(e) => setKey(e.target.value)} />
           <button onClick={() => insertStuff()}>Insert</button>
         </div>
@@ -103,7 +103,7 @@ function Tree() {
         <button onClick={() => traversal(1)}>Pre-Order traversal</button>
         <button onClick={() => traversal(2)}>Post-Order traversal</button>
 
-        <div class="key">
+        <div className="key">
           <input type="number" placeholder="Remove key" onChange={(e) => setKey(e.target.value)} />
           <button onClick={() => removeStuff()}>Remove</button>
         </div>
@@ -114,7 +114,7 @@ function Tree() {
         {
           constructTree(treeNode.root)
         }
-        {treeNode.root === null && <p>Tree is Empty. Try adding a node.</p>}
+        {treeNode.root === null && <p id="emptyTreeMsg">Tree is Empty. Try adding a node.</p>}
       </div>
     </div>
   );
