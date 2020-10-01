@@ -1,6 +1,13 @@
 .container{
     margin:0 auto;
 }
+
+#emptyTreeMsg {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
 .node{
     width:3em;
     height: 3em;
