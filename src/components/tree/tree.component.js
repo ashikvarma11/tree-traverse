@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, useRef, createRef } from 'react';
 import './tree.component.css';
+import './tree.color.component.css';
 import Node from './subtree/node/node.component';
 import TreeContext from './tree_context';
 import TreeModel from '../../classes/tree.model';
