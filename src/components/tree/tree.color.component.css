@@ -1,0 +1,28 @@
+.node{
+    border-color: #c63e3e;
+}
+
+.node h3{
+    color:#292929;
+}
+.visited{
+    background-color: #c63e3e;
+}
+
+input{
+    border-color: #c63e3e;
+    color:#292929;
+}
+
+.navbar{
+    border-color: #800000;
+}
+button{
+    background-color:  #800000;
+    color:white;
+}
+
+.logo h6{
+    border: 2px solid  #800000;
+    color: #800000;
+}
