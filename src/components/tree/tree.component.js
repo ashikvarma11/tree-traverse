@@ -88,8 +88,9 @@ function Tree() {
         <div className="logo">
           <h6>BINARY SEARCH TREE</h6>
         </div>
+
         <div className="key">
-          Key <input type="number" name="key" onChange={(e) => setKey(e.target.value)} />
+           <input type="number" placeholder="Insert key"name="key" onChange={(e) => setKey(e.target.value)} />
           <button onClick={() => insertStuff()}>Insert</button>
         </div>
 
@@ -98,19 +99,21 @@ function Tree() {
         Value <input type="number" placeholder="value" onChange={(e)=>setValue(e.target.value)}/>
         </div> */}
 
-
-        <button onClick={() => traversal(0)}>In-Order traversal</button>
-        <button onClick={() => traversal(1)}>Pre-Order traversal</button>
-        <button onClick={() => traversal(2)}>Post-Order traversal</button>
-        <button onClick={() => traversal(3)}>Breadth-First traversal</button>
-
         <div className="key">
           <input type="number" placeholder="Remove key" onChange={(e) => setKey(e.target.value)} />
           <button onClick={() => removeStuff()}>Remove</button>
         </div>
-
       </div>
 
+      <div>
+        <p>
+        <button onClick={() => traversal(0)}>In-Order traversal</button>
+        <button onClick={() => traversal(1)}>Pre-Order traversal</button>
+        <button onClick={() => traversal(2)}>Post-Order traversal</button>
+        <button onClick={() => traversal(3)}>Breadth-First traversal</button>
+        </p>
+        
+      </div>
       <div className="tree">
         {
           constructTree(treeNode.root)
