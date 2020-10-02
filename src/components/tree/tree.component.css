@@ -1,5 +1,6 @@
 .container{
     margin:0 auto;
+    width: 100%;
 }
 
 #emptyTreeMsg {
@@ -56,6 +57,7 @@ input{
     height: 2em;
     color:#292929;
     font-weight: 500;
+    margin-top: 2em;
 }
 
 .navbar{
@@ -75,20 +77,28 @@ input{
 
 button{
     background-color: teal;
+    position: center;
+    box-align: center;
     border: none;
-    width:12em;
-    padding:0 2em;
+    width:20em;
+    padding: 2em;
     font-family: 'Montserrat';
     /* letter-spacing: 0.1rem; */
     font-size: 0.7rem;
     border-radius: 2px;
-    padding: 0.5em;
+    padding: 0.9em;
+    margin-left: 13.5%;
     color:white;
+    margin-top: 2em;
 }
 
-input:hover,button:hover{
+input:hover{
 cursor: pointer;
 }
+button:hover{
+    cursor: pointer;
+    background-color: rgb(196, 88, 206);
+    }
 button:focus{
     outline: none !important
   
@@ -103,8 +113,9 @@ input:focus{
     position: absolute;
     left: 3em;
     border: 2px solid teal;
-    top:3em;
-    padding:1em;
+    top:5em;
+    padding:2em;
     margin: 0;
     color:teal;
+    background-color: beige;
 }

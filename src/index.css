@@ -1,5 +1,7 @@
 body{
-  margin: 0;
+  margin: 0%;
   font-family: 'Montserrat';
   letter-spacing: 0.1rem;
+  background-image: linear-gradient(to right, aqua, blue);
+  height: 100%;
 }
