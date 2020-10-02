@@ -2,6 +2,6 @@ body{
   margin: 0%;
   font-family: 'Montserrat';
   letter-spacing: 0.1rem;
-  background-image: linear-gradient(to right, aqua, blue);
+  background-image: linear-gradient(to right, teal,#4DB686, #80CF7F);
   height: 100%;
 }

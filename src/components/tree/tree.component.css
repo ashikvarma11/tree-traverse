@@ -97,7 +97,7 @@ cursor: pointer;
 }
 button:hover{
     cursor: pointer;
-    background-color: rgb(196, 88, 206);
+    background-color: #4DB686;
     }
 button:focus{
     outline: none !important
