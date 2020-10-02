@@ -93,6 +93,16 @@ class TreeModel {
         if (queue[0].right != null) queue.push(queue[0].right);
         fn(queue.shift());
       }
+    }
+
+    depthFirst(node, fn) {
+        const stack = [node];
+        while(stack.length > 0){
+            const x = stack[stack.length-1];
+            fn(stack.pop());
+            if (x.left != null) stack.push(x.left);
+            if (x.right != null) stack.push(x.right);
+        }
     } 
 }
 export default TreeModel;

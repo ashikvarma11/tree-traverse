@@ -75,6 +75,7 @@ function Tree() {
       case 1: treeNode.preorder(treeNode.root, calculateTraversal); break;
       case 2: treeNode.postorder(treeNode.root, calculateTraversal); break;
       case 3: treeNode.breadthFirst(treeNode.root, calculateTraversal); break;
+      case 4: treeNode.depthFirst(treeNode.root, calculateTraversal); break;
       default: return;
     }
 
@@ -103,6 +104,7 @@ function Tree() {
         <button onClick={() => traversal(1)}>Pre-Order traversal</button>
         <button onClick={() => traversal(2)}>Post-Order traversal</button>
         <button onClick={() => traversal(3)}>Breadth-First traversal</button>
+        <button onClick={() => traversal(4)}>Depth-First traversal</button>
 
         <div className="key">
           <input type="number" placeholder="Remove key" onChange={(e) => setKey(e.target.value)} />
