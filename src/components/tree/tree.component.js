@@ -99,12 +99,6 @@ function Tree() {
         Value <input type="number" placeholder="value" onChange={(e)=>setValue(e.target.value)}/>
         </div> */}
 
-
-        <button onClick={() => traversal(0)}>In-Order traversal</button>
-        <button onClick={() => traversal(1)}>Pre-Order traversal</button>
-        <button onClick={() => traversal(2)}>Post-Order traversal</button>
-        <button onClick={() => traversal(3)}>Breadth-First traversal</button>
-
         <div className="key">
           <input type="number" placeholder="Remove key" onChange={(e) => setKey(e.target.value)} />
           <button onClick={() => removeStuff()}>Remove</button>
@@ -116,7 +110,7 @@ function Tree() {
         <button onClick={() => traversal(0)}>In-Order traversal</button>
         <button onClick={() => traversal(1)}>Pre-Order traversal</button>
         <button onClick={() => traversal(2)}>Post-Order traversal</button>
-        
+        <button onClick={() => traversal(3)}>Breadth-First traversal</button>
         </p>
         
       </div>
