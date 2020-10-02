@@ -61,7 +61,6 @@ function Tree() {
       setTimeout(function () {
         treeContext.curr_node_idx = node.key;
         setCurrNode(node.key);
-        console.log('hi')
       }, 1000 * i);
     }
 

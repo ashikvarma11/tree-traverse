@@ -88,7 +88,6 @@ class TreeModel {
   
     breadthFirst(node, fn) {
       const queue = [node];
-
       while (queue.length > 0) {
         if (queue[0].left != null) queue.push(queue[0].left);
         if (queue[0].right != null) queue.push(queue[0].right);
