@@ -40,9 +40,6 @@ git checkout -b my-awesome-fix
 Run the following commands to set up the development environment.
 
 ```sh
-cd tree
-```
-```sh
 npm install
 ```
 
