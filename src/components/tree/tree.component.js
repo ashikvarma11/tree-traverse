@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect, useRef, createRef } from 'react';
-import './tree.component.css';
-import Node from './subtree/node/node.component';
-import TreeContext from './tree_context';
+import React, { useContext, useState } from 'react';
 import TreeModel from '../../classes/tree.model';
+import Node from './subtree/node/node.component';
+import './tree.component.css';
+import TreeContext from './tree_context';
 function Tree() {
   let treeContext = useContext(TreeContext);
   const [subtrees, setSubtree] = useState(treeContext.subtrees);
@@ -61,7 +61,6 @@ function Tree() {
       setTimeout(function () {
         treeContext.curr_node_idx = node.key;
         setCurrNode(node.key);
-        console.log('hi')
       }, 1000 * i);
     }
 
@@ -75,6 +74,7 @@ function Tree() {
       case 0: treeNode.inorder(treeNode.root, calculateTraversal); break;
       case 1: treeNode.preorder(treeNode.root, calculateTraversal); break;
       case 2: treeNode.postorder(treeNode.root, calculateTraversal); break;
+      case 3: treeNode.breadthFirst(treeNode.root, calculateTraversal); break;
       default: return;
     }
 
@@ -98,6 +98,12 @@ function Tree() {
         {/* <div>
         Value <input type="number" placeholder="value" onChange={(e)=>setValue(e.target.value)}/>
         </div> */}
+
+
+        <button onClick={() => traversal(0)}>In-Order traversal</button>
+        <button onClick={() => traversal(1)}>Pre-Order traversal</button>
+        <button onClick={() => traversal(2)}>Post-Order traversal</button>
+        <button onClick={() => traversal(3)}>Breadth-First traversal</button>
 
         <div className="key">
           <input type="number" placeholder="Remove key" onChange={(e) => setKey(e.target.value)} />
