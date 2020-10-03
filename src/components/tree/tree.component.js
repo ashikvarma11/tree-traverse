@@ -7,7 +7,8 @@ function Tree() {
   let treeContext = useContext(TreeContext);
   const [subtrees, setSubtree] = useState(treeContext.subtrees);
   const [currNode, setCurrNode] = useState(0);
-  const [key, setKey] = useState(0);
+  const [removeKey, setRemoveKey] = useState(0);
+  const [insertKey, setInsertKey] = useState(0);
   const [value, setValue] = useState(0);
   const [treeNode, setTreeNode] = useState(new TreeModel());
   const [updateTree, setUpdateTree] = useState(0); // integer state
@@ -15,14 +16,14 @@ function Tree() {
   let insertedKey = 0;
 
   const insertStuff = () => {
-    treeNode.insert(parseInt(key), parseInt(value));
-    insertedKey = parseInt(key);
+    treeNode.insert(parseInt(insertKey), parseInt(value));
+    insertedKey = parseInt(insertKey);
     setUpdateTree(value => ++value); // update the state to force render
 
   }
 
   const removeStuff = () => {
-    treeNode.remove(parseInt(key));
+    treeNode.remove(parseInt(removeKey));
     setUpdateTree(value => ++value); // update the state to force render
 
   }
@@ -90,7 +91,7 @@ function Tree() {
           <h6>BINARY SEARCH TREE</h6>
         </div>
         <div className="key">
-          Key <input type="number" name="key" onChange={(e) => setKey(e.target.value)} />
+          Key <input type="number" name="key" onChange={(e) => setInsertKey(e.target.value)} />
           <button onClick={() => insertStuff()}>Insert</button>
         </div>
 
@@ -107,7 +108,7 @@ function Tree() {
         <button onClick={() => traversal(4)}>Depth-First traversal</button>
 
         <div className="key">
-          <input type="number" placeholder="Remove key" onChange={(e) => setKey(e.target.value)} />
+          <input type="number" placeholder="Remove key" onChange={(e) => setRemoveKey(e.target.value)} />
           <button onClick={() => removeStuff()}>Remove</button>
         </div>
 
