@@ -71,7 +71,7 @@ input {
     border-bottom: 2px solid teal;
     background-color: teal;
     border-bottom: 0.5em solid #005353;
-    padding-bottom: 1.2em;
+    padding-bottom: 0.7em;
 }
 
 button {
@@ -104,7 +104,7 @@ input:focus {
 }
 
 .logo-bar {
-    padding: 2.7em 2.7em 1em;
+    padding: 2em 2em 0.5em;
     display: flex;
     justify-content: center;
     background-color: teal;
@@ -124,12 +124,10 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1em;
 }
 
 .main-actions button {
     width: 9em;
-    font-size: 1em;
 }
 
 #add:hover {

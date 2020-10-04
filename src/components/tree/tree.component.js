@@ -101,7 +101,7 @@ function Tree() {
             <div className="header">
                 <div className="logo-bar">
                     <img className="logo" src={logo} width={50}/>
-                    <div id="title">BINARY SEARCH TREE VISUALIZATION</div>
+                    <div id="title">BINARY SEARCH TREE</div>
                     <img className="logo" src={logo} width={50}/>
                 </div>
                 <div className="main-actions">
@@ -125,9 +125,7 @@ function Tree() {
             </div>
 
             <div className="tree">
-                {
-                    constructTree(treeNode.root)
-                }
+                {constructTree(treeNode.root)}
                 {treeNode.root === null && <p id="emptyTreeMsg">Tree is Empty. Try adding a node.</p>}
             </div>
         </div>
