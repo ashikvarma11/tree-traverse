@@ -9,6 +9,7 @@ function Tree() {
   const [currNode, setCurrNode] = useState(0);
   const [removeKey, setRemoveKey] = useState(0);
   const [insertKey, setInsertKey] = useState(0);
+  const [findKey, setFindKey] = useState(0);
   const [value, setValue] = useState(0);
   const [treeNode, setTreeNode] = useState(new TreeModel());
   const [updateTree, setUpdateTree] = useState(0); // integer state
@@ -83,6 +84,15 @@ function Tree() {
     showAnimation();
   }
 
+  const findingKey = () => {
+    nodeList = [];
+    if(treeNode.findingKey(treeNode.root, calculateTraversal, parseInt(findKey))){
+      showAnimation();
+    }else{
+      // Key not present handling
+    }
+  }
+
   return (
 
     <div className="container">
@@ -110,6 +120,11 @@ function Tree() {
         <div className="key">
           <input type="number" placeholder="Remove key" onChange={(e) => setRemoveKey(e.target.value)} />
           <button onClick={() => removeStuff()}>Remove</button>
+        </div>
+
+        <div className="key">
+          <input type="number" placeholder="Find Key" onChange={(e) => setFindKey(e.target.value)} />
+          <button onClick={() => findingKey()}>Find</button>
         </div>
 
       </div>
