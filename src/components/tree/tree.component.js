@@ -104,29 +104,23 @@ function Tree() {
                     <div id="title">BINARY SEARCH TREE VISUALIZATION</div>
                     <img className="logo" src={logo} width={50}/>
                 </div>
+                <div className="main-actions">
+                    <button id="add" onClick={() => insertStuff()}>Insert</button>
+                    <input type="number"
+                           name="key"
+                           placeholder="enter tree key"
+                           onChange={e => {
+                               setInsertKey(e.target.value);
+                               setRemoveKey(e.target.value);
+                           }}/>
+                    <button id="remove" onClick={() => removeStuff()}>Remove</button>
+                </div>
                 <div className="navbar">
-                    <div className="key">
-                        Key <input type="number" name="key" onChange={(e) => setInsertKey(e.target.value)}/>
-                        <button onClick={() => insertStuff()}>Insert</button>
-                    </div>
-
-                    {/* Out of Scope for now */}
-                    {/* <div>
-        Value <input type="number" placeholder="value" onChange={(e)=>setValue(e.target.value)}/>
-        </div> */}
-
-
                     <button onClick={() => traversal(0)}>In-Order traversal</button>
                     <button onClick={() => traversal(1)}>Pre-Order traversal</button>
                     <button onClick={() => traversal(2)}>Post-Order traversal</button>
                     <button onClick={() => traversal(3)}>Breadth-First traversal</button>
                     <button onClick={() => traversal(4)}>Depth-First traversal</button>
-
-                    <div className="key">
-                        <input type="number" placeholder="Remove key" onChange={(e) => setRemoveKey(e.target.value)}/>
-                        <button onClick={() => removeStuff()}>Remove</button>
-                    </div>
-
                 </div>
             </div>
 
