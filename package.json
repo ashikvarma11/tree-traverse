@@ -8,14 +8,16 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "serve": "^11.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format:prettier": "prettier --write \"src/**/*.+(js|md|css|json|html)\"",
+    "check:prettier": "prettier --check \"src/**/*.+(js|md|css|json|html)\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +35,20 @@
     ]
   },
   "devDependencies": {
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
     "prettier": "2.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+      "**/*.+(js|md|css|json|html)": [
+        "prettier --check",
+        "prettier --write",
+        "git add"
+      ]
+    }
   }
 }
