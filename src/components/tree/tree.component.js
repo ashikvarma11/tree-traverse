@@ -11,6 +11,7 @@ function Tree() {
     const [currNode, setCurrNode] = useState(0);
     const [removeKey, setRemoveKey] = useState(0);
     const [insertKey, setInsertKey] = useState(0);
+    const [findKey, setFindKey] = useState(0);
     const [value, setValue] = useState(0);
     const [treeNode, setTreeNode] = useState(new TreeModel());
     const [updateTree, setUpdateTree] = useState(0); // integer state
@@ -96,6 +97,15 @@ function Tree() {
         showAnimation();
     }
 
+    const findStuff = () => {
+        nodeList = [];
+        if(treeNode.findingKey(treeNode.root, calculateTraversal, parseInt(findKey))){
+          showAnimation();
+        }else{
+          // Key not present handling
+        }
+      }
+
     return (
         <div className="container">
             <div className="header">
@@ -112,8 +122,10 @@ function Tree() {
                            onChange={e => {
                                setInsertKey(e.target.value);
                                setRemoveKey(e.target.value);
+                               setFindKey(e.target.value);
                            }}/>
                     <button id="remove" onClick={() => removeStuff()}>Remove</button>
+                    <button id="find" onClick={() => findStuff()}>Find</button>
                 </div>
                 <div className="navbar">
                     <button onClick={() => traversal(0)}>In-Order traversal</button>

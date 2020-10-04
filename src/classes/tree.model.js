@@ -104,5 +104,19 @@ class TreeModel {
             if (x.right != null) stack.push(x.right);
         }
     } 
+
+    findingKey(node, fn, key) {
+        if (node === null) {
+            return false;
+        }
+        fn(node);
+        if(node.key===key){
+            return true;
+        }else if(node.key>=key){
+            return this.findingKey(node.left,fn,key);
+        }else{
+            return this.findingKey(node.right,fn,key);
+        }
+    }
 }
 export default TreeModel;

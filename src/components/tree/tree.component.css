@@ -139,3 +139,7 @@ input:focus {
     color: #ff6d6d;
     border-color: #ff6d6d;
 }
+#find:hover {
+    color: #fafd53;
+    border-color: #fafd53;
+}
