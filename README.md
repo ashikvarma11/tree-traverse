@@ -11,4 +11,5 @@ CHECKOUT THE LIVE APP HERE: https://binary-search-tree-visualizer.netlify.app/
 
 ## Contributing
 
-Please go through CONTRIBUTING.md document in the repository
+Please go through [CONTRIBUTING.md](./CONTRIBUTING.md) document in the
+repository
