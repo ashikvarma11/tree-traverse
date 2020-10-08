@@ -41,7 +41,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-receive": "npm run check:prettier"
     },
     "lint-staged": {
       "**/*.+(js|md|css|json|html)": [
