@@ -11,6 +11,7 @@ function Tree() {
     const [currNode, setCurrNode] = useState(0);
     const [removeKey, setRemoveKey] = useState(0);
     const [insertKey, setInsertKey] = useState(0);
+    const [findKey, setFindKey] = useState(0);
     const [value, setValue] = useState(0);
     const [treeNode, setTreeNode] = useState(new TreeModel());
     const [updateTree, setUpdateTree] = useState(0); // integer state
@@ -89,6 +90,17 @@ function Tree() {
             case 4:
                 treeNode.depthFirst(treeNode.root, calculateTraversal);
                 break;
+            case 5:
+                if (
+                  !treeNode.findingKey(
+                    treeNode.root,
+                    calculateTraversal,
+                    parseInt(findKey),
+                  )
+                ) {
+                  nodeList = [];
+                }
+                break;
             default:
                 return;
         }
@@ -105,15 +117,17 @@ function Tree() {
                     <img className="logo" src={logo} width={50}/>
                 </div>
                 <div className="main-actions">
-                    <button id="add" onClick={() => insertStuff()}>Insert</button>
                     <input type="number"
                            name="key"
                            placeholder="enter tree key"
                            onChange={e => {
                                setInsertKey(e.target.value);
                                setRemoveKey(e.target.value);
+                               setFindKey(e.target.value);
                            }}/>
+                    <button id="add" onClick={() => insertStuff()}>Insert</button>
                     <button id="remove" onClick={() => removeStuff()}>Remove</button>
+                    <button id="find" onClick={() => traversal(5)}>Find</button>
                 </div>
                 <div className="navbar">
                     <button onClick={() => traversal(0)}>In-Order traversal</button>
