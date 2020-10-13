@@ -1,3 +1,8 @@
 {
-  "**/*.+(js|md|css|json|html)": ["prettier --write", "git add"]
+  "**/*.+(js|md|html|ts|css|yml|yaml|json)": [
+    "eslint --fix",
+    "prettier --write",
+    "jest --findRelatedTests",
+    "git add"
+  ]
 }
